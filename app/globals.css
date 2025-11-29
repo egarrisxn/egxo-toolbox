@@ -123,7 +123,7 @@
 
 ::selection {
   color: var(--background);
-  background: var(--link);
+  background: var(--foreground);
 }
 * {
   scrollbar-width: thin;
