@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Plus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -34,7 +34,6 @@ export default function TaskList() {
     if (!newTaskText.trim()) return;
 
     const newTask: Task = {
-      // Use crypto.randomUUID() for cleaner IDs if available, but Date.now() is fine too.
       id: Date.now().toString(),
       text: newTaskText,
       completed: false,

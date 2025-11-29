@@ -75,7 +75,7 @@ interface KeyboardProps {
   onNoteOff: (note: string) => void;
 }
 
-export const Keyboard = memo(
+export const SynthKeyboard = memo(
   ({ activeKeys, onNoteOn, onNoteOff }: KeyboardProps) => {
     // Define white keys first (extended range)
     const whiteKeys = [
@@ -144,4 +144,4 @@ export const Keyboard = memo(
   }
 );
 
-Keyboard.displayName = "Keyboard";
+SynthKeyboard.displayName = "Synth Keyboard";

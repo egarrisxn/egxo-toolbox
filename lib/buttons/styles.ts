@@ -439,30 +439,6 @@ const getRetroStyle = (color: string) => {
   }`;
 };
 
-const getNightlifeStyle = (color: string) => {
-  return `
-  .button {
-    padding: 0.75rem 1.5rem;
-    font-weight: 600;
-    font-size: 1rem;
-    border: 2px solid transparent;
-    outline: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    background: 
-      linear-gradient(#fff, #fff) padding-box,
-      linear-gradient(45deg, #ff6b6b, #4ecdc4) border-box;;
-    color: ${color};
-    border-radius: 8px;
-  }
-  .button:hover {
-    transform: translateY(-2px);
-  }
-  .button:active {
-    transform: translateY(2px);
-  }`;
-};
-
 const getGlitchStyle = (color: string) => {
   const shadowColor1 = "rgba(0, 0, 0, 0.1)";
   const shadowColor2 = "rgba(0, 0, 0, 0.2)";
@@ -835,7 +811,6 @@ export const getButtonStyles = (
     Neon: getNeonStyle,
     Liquid: getLiquidStyle,
     Retro: getRetroStyle,
-    Nightlife: getNightlifeStyle,
     Glitch: getGlitchStyle,
     Bubble: getBubbleStyle,
     Appearance: getAppearanceStyle,

@@ -110,16 +110,6 @@ export const buttonGroups = [
     ],
   },
   {
-    name: "Nightlife",
-    variants: [
-      { name: "purple", color: "#6366f1" },
-      { name: "blue", color: "#3b82f6" },
-      { name: "green", color: "#22c55e" },
-      { name: "orange", color: "#f59e0b" },
-      { name: "red", color: "#ef4444" },
-    ],
-  },
-  {
     name: "Glitch",
     variants: [
       { name: "purple", color: "#6366f1" },

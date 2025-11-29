@@ -81,8 +81,6 @@ export default function PomodoroTimer() {
       const nextTime =
         nextMode === "work" ? settings.workTime : settings.breakTime;
 
-      // Wrap state updates in setTimeout(0) to break the synchronous chain
-      // and satisfy the linter's check against synchronous setState in effects.
       setTimeout(() => {
         setMode(nextMode);
         setTimeLeft(nextTime);
@@ -168,7 +166,7 @@ export default function PomodoroTimer() {
   };
 
   return (
-    <Card className='h-fit w-full max-w-96 min-w-80 rounded-none border-none px-2 pt-0 pb-2 shadow-none sm:max-w-96 sm:min-w-96 xl:min-w-[26em]'>
+    <Card className='h-fit w-full max-w-96 min-w-80 sm:max-w-96 sm:min-w-96 xl:min-w-[26em]'>
       <Progress value={calculateProgress()} />
       <CardHeader>
         <CardTitle className='mx-auto text-3xl font-bold'>

@@ -4,7 +4,7 @@ import { useEffect, useState, useCallback, useRef } from "react";
 import * as Tone from "tone";
 import { Slider } from "@/components/ui/slider";
 import { WaveformVisualizer } from "./waveform-visualizer";
-import { Keyboard } from "./keyboard";
+import { SynthKeyboard } from "./synth-keyboard";
 import { NoteInfo } from "./note-info";
 import { PitchShift } from "./pitch-shift";
 import { AudioVisualizer } from "./audio-visualizer";
@@ -366,7 +366,7 @@ export default function SynthPlayer() {
         <AudioVisualizer activeNotes={activeNotes} resetKey={resetKey} />
       </div>
 
-      <Keyboard
+      <SynthKeyboard
         activeKeys={activeKeys}
         onNoteOn={handleNoteOn}
         onNoteOff={handleNoteOff}

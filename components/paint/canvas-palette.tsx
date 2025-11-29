@@ -8,7 +8,7 @@ interface ColorPaletteProps {
   onColorSelect: (color: string) => void;
 }
 
-export function ColorPalette({
+export function CanvasPalette({
   colors,
   selectedColor,
   onColorSelect,

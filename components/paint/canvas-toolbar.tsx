@@ -7,7 +7,7 @@ interface ToolBarProps {
   onToolSelect: (tool: string) => void;
 }
 
-export function ToolBar({ selectedTool, onToolSelect }: ToolBarProps) {
+export function CanvasToolBar({ selectedTool, onToolSelect }: ToolBarProps) {
   return (
     <div className='w-8 border-r border-gray-400 bg-gray-300 p-0.5'>
       <Button

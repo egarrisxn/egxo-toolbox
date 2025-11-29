@@ -25,8 +25,8 @@ export default function ButtonGroup({ group, onCopy }: ButtonGroupProps) {
       </CardHeader>
       <CardContent className='flex w-full min-w-60 flex-col gap-4'>
         {group.variants.map((variant) => {
-          const variantClass = variant.name; // e.g. "default", "rounded", "gradient"
-          const groupClass = sanitizedGroupName; // e.g. "nightlife"
+          const variantClass = variant.name;
+          const groupClass = sanitizedGroupName;
 
           const rgbColor = hexToRgb(variant.color);
 

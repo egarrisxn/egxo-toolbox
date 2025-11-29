@@ -3,16 +3,16 @@
 import { useRef, useState, useEffect } from "react";
 import { colors } from "@/lib/paint/colors";
 import { Button } from "@/components/ui/button";
-import { CanvasHeader } from "./header";
-import { ToolBar } from "./toolbar";
-import { ColorPalette } from "./palette";
+import { CanvasHeader } from "./canvas-header";
+import { CanvasToolBar } from "./canvas-toolbar";
+import { CanvasPalette } from "./canvas-palette";
 
 interface Position {
   x: number;
   y: number;
 }
 
-export default function Canvas() {
+export default function PaintCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isDrawing, setIsDrawing] = useState(false);
@@ -208,7 +208,7 @@ export default function Canvas() {
           onMouseLeave={stopDragging}
         />
         <div className='flex'>
-          <ToolBar selectedTool={tool} onToolSelect={setTool} />
+          <CanvasToolBar selectedTool={tool} onToolSelect={setTool} />
           <div className='h-[450px] w-[380px] overflow-auto border border-gray-400 lg:w-[760px]'>
             <canvas
               ref={canvasRef}
@@ -221,7 +221,7 @@ export default function Canvas() {
             />
           </div>
         </div>
-        <ColorPalette
+        <CanvasPalette
           colors={colors}
           selectedColor={color}
           onColorSelect={setColor}
