@@ -20,11 +20,11 @@ export function ColorDetails({
           H {hue}
         </div>
         <div className='h-1 w-14 overflow-hidden rounded-full bg-secondary lg:w-16'>
-          <motion.div
+          <div
             className='h-full bg-black dark:bg-primary'
             style={{ width: `${(hue / 360) * 100}%` }}
-            animate={{ width: `${(hue / 360) * 100}%` }}
-            transition={{ duration: 0.3 }}
+            // animate={{ width: `${(hue / 360) * 100}%` }}
+            // transition={{ duration: 0.3 }}
           />
         </div>
       </div>
@@ -33,11 +33,11 @@ export function ColorDetails({
           S {saturation}
         </div>
         <div className='h-1 w-14 overflow-hidden rounded-full bg-secondary lg:w-16'>
-          <motion.div
+          <div
             className='h-full bg-black dark:bg-primary'
             style={{ width: `${saturation}%` }}
-            animate={{ width: `${saturation}%` }}
-            transition={{ duration: 0.3 }}
+            // animate={{ width: `${saturation}%` }}
+            // transition={{ duration: 0.3 }}
           />
         </div>
       </div>
@@ -46,11 +46,11 @@ export function ColorDetails({
           L {lightness}
         </div>
         <div className='h-1 w-14 overflow-hidden rounded-full bg-secondary lg:w-16'>
-          <motion.div
+          <div
             className='h-full bg-black dark:bg-primary'
             style={{ width: `${lightness}%` }}
-            animate={{ width: `${lightness}%` }}
-            transition={{ duration: 0.3 }}
+            // animate={{ width: `${lightness}%` }}
+            // transition={{ duration: 0.3 }}
           />
         </div>
       </div>
@@ -111,11 +111,11 @@ interface ColorSquareProps {
 
 export function ColorSquare({ className, baseColor, hue }: ColorSquareProps) {
   return (
-    <motion.div
+    <div
       className={`${className} size-8 rounded`}
       style={{ backgroundColor: baseColor || hue }}
-      animate={{ backgroundColor: baseColor || hue }}
-      transition={{ duration: 0.3 }}
+      // animate={{ backgroundColor: baseColor || hue }}
+      // transition={{ duration: 0.3 }}
     />
   );
 }
@@ -128,25 +128,25 @@ interface CopyColorProps {
 
 export function CopyColor({ copyToClipboard, hex, copiedHex }: CopyColorProps) {
   return (
-    <motion.div
+    <div
       className='flex cursor-pointer items-center gap-0.5 font-mono text-xs tracking-tight lg:gap-1.5 lg:text-base lg:tracking-normal'
       onClick={() => copyToClipboard(hex)}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
+      // whileHover={{ scale: 1.05 }}
+      // whileTap={{ scale: 0.95 }}
     >
       {hex}
       {copiedHex === hex ? (
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ type: "spring", stiffness: 500, damping: 15 }}
+        <div
+          // initial={{ scale: 0 }}
+          // animate={{ scale: 1 }}
+          // transition={{ type: "spring", stiffness: 500, damping: 15 }}
         >
           <Check className='size-3 text-green-500 lg:size-4' />
-        </motion.div>
+        </div>
       ) : (
         <Copy className='size-3 opacity-50 lg:size-4' />
       )}
-    </motion.div>
+    </div>
   );
 }
 
@@ -161,7 +161,10 @@ export function RandomizeColor({
 }: RandomizeColorProps) {
   return (
     <div className='flex items-center gap-2'>
-      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+      <div
+        // whileHover={{ scale: 1.05 }}
+        // whileTap={{ scale: 0.95 }}
+      >
         <Button
           variant='outline'
           size='sm'
@@ -174,7 +177,7 @@ export function RandomizeColor({
           />
           Randomize
         </Button>
-      </motion.div>
+      </div>
     </div>
   );
 }

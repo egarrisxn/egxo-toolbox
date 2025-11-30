@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { ThemeToggle } from "@/components/shared/theme-toggle";
 
 export default function HomePage() {
   return (
@@ -14,6 +14,7 @@ export default function HomePage() {
         <section className='flex flex-col gap-1'>
           <Link href='/tools/button-copy'>Button Copy</Link>
           <Link href='/tools/paint-canvas'>Paint Canvas</Link>
+          <Link href='/tools/palette-generator'>Palette Generator</Link>
           <Link href='/tools/pomodoro-timer'>Pomodoro Timer</Link>
           <Link href='/tools/synth-player'>Synth Player</Link>
           <Link href='/tools/transcribe-live'>Transcribe Live</Link>

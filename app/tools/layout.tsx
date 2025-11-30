@@ -1,5 +1,5 @@
-import { ThemeToggle } from "@/components/theme-toggle";
-import { BackButton } from "@/components/back-button";
+import { ThemeToggle } from "@/components/shared/theme-toggle";
+import { BackButton } from "@/components/shared/back-button";
 
 export default function PagesLayout({
   children,

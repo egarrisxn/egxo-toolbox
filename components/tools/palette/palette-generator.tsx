@@ -173,11 +173,11 @@ export default function PaletteGenerator() {
   return (
     <div className='flex w-full flex-col gap-6'>
       {/* Header */}
-      <motion.div
+      <div
         className='flex flex-row items-center justify-between border-b p-4'
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3 }}
+        // initial={{ opacity: 0, y: -10 }}
+        // animate={{ opacity: 1, y: 0 }}
+        // transition={{ duration: 0.3 }}
       >
         <div className='flex flex-row items-center gap-2'>
           <ColorSquare baseColor={baseColor} />
@@ -189,15 +189,15 @@ export default function PaletteGenerator() {
         <div className='flex'>
           <DownloadJson downloadPalette={downloadPalette} />
         </div>
-      </motion.div>
+      </div>
 
       <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
         <div className='space-y-6'>
-          <motion.div
+          <div
             className='space-y-4 rounded-lg border p-4'
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: 0.1 }}
+            // initial={{ opacity: 0, y: 20 }}
+            // animate={{ opacity: 1, y: 0 }}
+            // transition={{ duration: 0.3, delay: 0.1 }}
           >
             {/* Color randomizer */}
             <div className='flex items-center justify-between'>
@@ -233,26 +233,26 @@ export default function PaletteGenerator() {
                 formatHexValue={(value) => formatHexValue(value, baseColor)}
               />
             </div>
-          </motion.div>
+          </div>
 
           {/* Vibrancy & hue adjustment */}
-          <motion.div
+          <div
             className='space-y-4 p-2'
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: 0.2 }}
+            // initial={{ opacity: 0, y: 20 }}
+            // animate={{ opacity: 1, y: 0 }}
+            // transition={{ duration: 0.3, delay: 0.2 }}
           >
             <VibrancySlider vibrancy={vibrancy} setVibrancy={setVibrancy} />
             <HueSlider hueShift={hueShift} setHueShift={setHueShift} />
-          </motion.div>
+          </div>
 
           {/* Hue visualizer */}
-          <motion.div
+          <div
             className='flex h-24 overflow-hidden rounded-lg'
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: 0.3 }}
-            whileHover={{ boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}
+            // initial={{ opacity: 0, y: 20 }}
+            // animate={{ opacity: 1, y: 0 }}
+            // transition={{ duration: 0.3, delay: 0.3 }}
+            // whileHover={{ boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}
           >
             {colorShades.map(({ shade, hex }, index) => (
               <motion.div
@@ -265,14 +265,14 @@ export default function PaletteGenerator() {
                 transition={{ duration: 0.3, delay: 0.05 * index }}
               />
             ))}
-          </motion.div>
+          </div>
 
           {/* Accessibility check */}
-          <motion.div
+          <div
             className='rounded-lg border p-4'
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: 0.4 }}
+            // initial={{ opacity: 0, y: 20 }}
+            // animate={{ opacity: 1, y: 0 }}
+            // transition={{ duration: 0.3, delay: 0.4 }}
           >
             <div className='mb-4 flex items-center justify-between'>
               <h3 className='font-medium'>Accessibility Pairs</h3>
@@ -285,18 +285,18 @@ export default function PaletteGenerator() {
               <AccessibilityPassing combinations={passingCombinations} />
               <AccessibilityFailing combinations={failingCombinations} />
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Color palette (50-900) */}
-        <motion.div
+        <div
           className='space-y-4'
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          // initial={{ opacity: 0 }}
+          // animate={{ opacity: 1 }}
+          // transition={{ duration: 0.5 }}
         >
           {colorShades.map(
-            ({ shade, hex, hue, saturation, lightness }, index) => (
+            ({ shade, hex, hue, saturation, lightness}, index ) => (
               <motion.div
                 key={shade}
                 className='flex flex-row items-center gap-1 rounded-lg p-1 transition-all duration-200 hover:bg-gray-100 sm:p-4 md:px-0 lg:p-4 dark:hover:bg-gray-800'
@@ -322,7 +322,7 @@ export default function PaletteGenerator() {
               </motion.div>
             )
           )}
-        </motion.div>
+        </div>
       </div>
     </div>
   );
