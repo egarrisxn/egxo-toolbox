@@ -3,10 +3,8 @@ import { typingQuotes } from "@/lib/helpers/typing-helpers";
 
 export default function TypingTestPage() {
   return (
-    <>
-      <section className='flex h-screen w-full items-center justify-center px-4'>
-        <TypingTest quotes={typingQuotes} />
-      </section>
-    </>
+    <section className='grid min-h-screen place-items-center'>
+      <TypingTest quotes={typingQuotes} />
+    </section>
   );
 }

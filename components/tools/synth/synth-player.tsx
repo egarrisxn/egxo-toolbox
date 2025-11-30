@@ -161,7 +161,7 @@ const LabeledSlider = ({
   onChange: (val: number) => void;
 }) => (
   <div className='flex flex-col gap-2'>
-    <span className='text-xs font-bold tracking-wider text-black uppercase'>
+    <span className='text-xs font-bold tracking-wider text-card-foreground uppercase'>
       {label}
     </span>
     <Slider
@@ -310,7 +310,7 @@ export default function SynthPlayer() {
   if (!analyser) return <div>Loading Audio Engine...</div>;
 
   return (
-    <div className='w-[375px] rounded-md border-2 border-border bg-white p-2 shadow-lg sm:w-[500px] md:w-[800px] md:p-6'>
+    <div className='w-[375px] bg-card p-1 sm:w-[500px] sm:rounded-xl sm:border sm:border-border sm:p-6 sm:shadow-lg md:w-[800px]'>
       <div className='mb-6 grid grid-cols-1 gap-4 md:grid-cols-2'>
         <div className='col-span-1 h-[100px]'>
           <WaveformVisualizer analyser={analyser} />

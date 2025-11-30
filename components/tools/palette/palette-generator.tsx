@@ -171,7 +171,7 @@ export default function PaletteGenerator() {
   );
 
   return (
-    <div className='flex w-full flex-col gap-6'>
+    <div className='flex w-full flex-col gap-6 px-4 py-16'>
       {/* Header */}
       <div
         className='flex flex-row items-center justify-between border-b p-4'
@@ -296,7 +296,7 @@ export default function PaletteGenerator() {
           // transition={{ duration: 0.5 }}
         >
           {colorShades.map(
-            ({ shade, hex, hue, saturation, lightness}, index ) => (
+            ({ shade, hex, hue, saturation, lightness }, index) => (
               <motion.div
                 key={shade}
                 className='flex flex-row items-center gap-1 rounded-lg p-1 transition-all duration-200 hover:bg-gray-100 sm:p-4 md:px-0 lg:p-4 dark:hover:bg-gray-800'

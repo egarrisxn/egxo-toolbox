@@ -249,7 +249,7 @@ export default function TranscribeLive() {
   };
 
   return (
-    <>
+    <div className='flex h-screen flex-col items-center justify-center px-4'>
       {/* Header */}
       <header>
         <div className='container mx-auto flex items-center justify-end p-4'>
@@ -371,6 +371,6 @@ export default function TranscribeLive() {
           </div>
         </div>
       </main>
-    </>
+    </div>
   );
 }

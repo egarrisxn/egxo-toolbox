@@ -9,12 +9,12 @@ interface ToolBarProps {
 
 export function CanvasToolBar({ selectedTool, onToolSelect }: ToolBarProps) {
   return (
-    <div className='w-8 border-r border-gray-400 bg-gray-300 p-0.5'>
+    <aside className='w-8 border-r border-border bg-card p-0.5'>
       <Button
         variant='ghost'
         className={`mb-0.5 size-7 min-w-0 p-0 ${
           selectedTool === "brush"
-            ? "border border-gray-400 bg-gray-300 shadow-inner"
+            ? "border border-border bg-card shadow-inner"
             : ""
         }`}
         onClick={() => onToolSelect("brush")}
@@ -37,7 +37,7 @@ export function CanvasToolBar({ selectedTool, onToolSelect }: ToolBarProps) {
         variant='ghost'
         className={`mb-0.5 size-7 min-w-0 p-0 ${
           selectedTool === "eraser"
-            ? "border border-gray-400 bg-gray-300 shadow-inner"
+            ? "border border-border bg-card shadow-inner"
             : ""
         }`}
         onClick={() => onToolSelect("eraser")}
@@ -56,6 +56,6 @@ export function CanvasToolBar({ selectedTool, onToolSelect }: ToolBarProps) {
           <path d='M17 17L7 7' />
         </svg>
       </Button>
-    </div>
+    </aside>
   );
 }

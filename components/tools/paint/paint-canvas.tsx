@@ -37,11 +37,6 @@ const paintColors = [
   "#FF8040",
 ];
 
-interface Position {
-  x: number;
-  y: number;
-}
-
 export default function PaintCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -51,8 +46,6 @@ export default function PaintCanvas() {
   const [windowState, setWindowState] = useState<"normal" | "minimized">(
     "normal"
   );
-  const [position, setPosition] = useState<Position>({ x: 0, y: 0 });
-  const [dragging, setDragging] = useState(false);
   const [showNewCanvasButton, setShowNewCanvasButton] = useState(false);
 
   useEffect(() => {
@@ -109,27 +102,6 @@ export default function PaintCanvas() {
 
   const stopDrawing = () => {
     setIsDrawing(false);
-  };
-
-  const startDragging = (e: React.MouseEvent<HTMLDivElement>) => {
-    setDragging(true);
-    setPosition({
-      x: e.clientX - (containerRef.current?.offsetLeft || 0),
-      y: e.clientY - (containerRef.current?.offsetTop || 0),
-    });
-  };
-
-  const onDrag = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (dragging && containerRef.current) {
-      const left = e.clientX - position.x;
-      const top = e.clientY - position.y;
-      containerRef.current.style.left = `${left}px`;
-      containerRef.current.style.top = `${top}px`;
-    }
-  };
-
-  const stopDragging = () => {
-    setDragging(false);
   };
 
   const minimizeWindow = () => {
@@ -226,24 +198,20 @@ export default function PaintCanvas() {
       )}
       <div
         ref={containerRef}
-        className='absolute top-1/2 left-1/2 w-[400px] -translate-x-1/2 -translate-y-1/2 transform rounded-sm border-2 border-white bg-gray-200 shadow-lg lg:w-[800px]'
+        className='absolute top-1/2 left-1/2 w-[380px] -translate-x-1/2 -translate-y-1/2 transform rounded-sm border border-border bg-card sm:w-[630px] sm:shadow-lg md:w-[740px]'
       >
         <CanvasHeader
           onMinimize={minimizeWindow}
           onClose={closeWindow}
           onNew={clearCanvas}
-          onMouseDown={startDragging}
-          onMouseMove={onDrag}
-          onMouseUp={stopDragging}
-          onMouseLeave={stopDragging}
         />
         <div className='flex'>
           <CanvasToolBar selectedTool={tool} onToolSelect={setTool} />
-          <div className='h-[450px] w-[380px] overflow-auto border border-gray-400 lg:w-[760px]'>
+          <div className='h-[460px] w-[370px] overflow-auto border border-border sm:w-[620px] md:w-[730px]'>
             <canvas
               ref={canvasRef}
-              width={760}
-              height={450}
+              width={740}
+              height={470}
               onMouseDown={startDrawing}
               onMouseMove={draw}
               onMouseUp={stopDrawing}
@@ -256,8 +224,8 @@ export default function PaintCanvas() {
           selectedColor={color}
           onColorSelect={setColor}
         />
-        <div className='border-t border-gray-400 bg-gray-300 p-1.5 text-sm'>
-          For help, utilize the Help Button above.
+        <div className='rounded-b-sm border-t border-border bg-card p-1.5 text-sm'>
+          For help, hit that help buton above!
         </div>
       </div>
     </>

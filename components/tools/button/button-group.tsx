@@ -1,6 +1,5 @@
 import type { CSSProperties } from "react";
 import { hexToRgb, getButtonStyles } from "@/lib/helpers/button-helpers";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
 interface Variant {
   name: string;
@@ -24,17 +23,16 @@ export default function ButtonGroup({ group, onCopy }: ButtonGroupProps) {
     "relative px-6 py-3 font-semibold text-base cursor-pointer outline-none border-none transition-all duration-200 select-none w-full md:w-auto";
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className='mx-auto text-2xl font-bold'>
+    <div className='flex flex-col gap-6 py-6 text-card-foreground sm:rounded-xl sm:border sm:bg-card sm:shadow-lg'>
+      <div className='grid auto-rows-min grid-rows-[auto_auto] items-start px-6'>
+        <div className='sm:text-2xk mx-auto text-xl leading-none font-semibold'>
           {group.name}
-        </CardTitle>
-      </CardHeader>
-      <CardContent className='flex w-full min-w-60 flex-col gap-4'>
+        </div>
+      </div>
+      <div className='mx-auto flex w-full max-w-md min-w-60 flex-col gap-4 px-2 sm:px-6'>
         {group.variants.map((variant) => {
           const variantClass = variant.name;
           const groupClass = sanitizedGroupName;
-
           const rgbColor = hexToRgb(variant.color);
 
           return (
@@ -54,7 +52,7 @@ export default function ButtonGroup({ group, onCopy }: ButtonGroupProps) {
             </button>
           );
         })}
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 }

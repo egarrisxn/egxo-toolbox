@@ -4,14 +4,8 @@ import { useState } from "react";
 import { QRCodeSVG } from "qrcode.react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
+import { Slider } from "@/components/ui/slider";
 import {
   Select,
   SelectContent,
@@ -19,7 +13,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Slider } from "@/components/ui/slider";
 
 type ErrorCorrectionLevel = "L" | "M" | "Q" | "H";
 
@@ -28,7 +21,7 @@ export default function QRCodeGenerator() {
   const [qrCode, setQRCode] = useState("https://egxo.dev");
   const [color, setColor] = useState("#000000");
   const [backgroundColor, setBackgroundColor] = useState("#ffffff");
-  const [size, setSize] = useState(200);
+  const [size, setSize] = useState(350);
   const [errorCorrection, setErrorCorrection] =
     useState<ErrorCorrectionLevel>("M");
 
@@ -38,13 +31,8 @@ export default function QRCodeGenerator() {
   };
 
   return (
-    <Card className='w-full max-w-2xl'>
-      <CardHeader>
-        <CardTitle className='text-center text-2xl font-bold'>
-          QR Generator
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
+    <div className='flex w-full max-w-md flex-col gap-4 bg-card py-6 sm:rounded-xl sm:border sm:border-border sm:shadow-lg'>
+      <div className='px-1 sm:px-6'>
         <form onSubmit={generateQRCode} className='space-y-4'>
           <div>
             <Label htmlFor='url'>URL</Label>
@@ -59,26 +47,45 @@ export default function QRCodeGenerator() {
             />
           </div>
 
-          <div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
+          <div className='grid grid-cols-3 items-center justify-center gap-4'>
             <div>
-              <Label htmlFor='color'>QR Code Color</Label>
+              <Label htmlFor='color'>QR Color</Label>
               <Input
                 id='color'
                 type='color'
                 value={color}
                 onChange={(e) => setColor(e.target.value)}
-                className='h-10 w-full'
+                className='h-9.5 w-full'
               />
             </div>
             <div>
-              <Label htmlFor='backgroundColor'>Background Color</Label>
+              <Label htmlFor='backgroundColor'>BG Color</Label>
               <Input
                 id='backgroundColor'
                 type='color'
                 value={backgroundColor}
                 onChange={(e) => setBackgroundColor(e.target.value)}
-                className='h-10 w-full'
+                className='h-9.5 w-full'
               />
+            </div>
+            <div>
+              <Label htmlFor='errorCorrection'>Error Level</Label>
+              <Select
+                value={errorCorrection}
+                onValueChange={(value) =>
+                  setErrorCorrection(value as ErrorCorrectionLevel)
+                }
+              >
+                <SelectTrigger className='w-full' id='errorCorrection'>
+                  <SelectValue placeholder='Select error correction level' />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value='L'>SM (7%)</SelectItem>
+                  <SelectItem value='M'>MD (15%)</SelectItem>
+                  <SelectItem value='Q'>LG (25%)</SelectItem>
+                  <SelectItem value='H'>XL (30%)</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
           </div>
 
@@ -89,7 +96,7 @@ export default function QRCodeGenerator() {
             <Slider
               id='size'
               min={100}
-              max={400}
+              max={350}
               step={10}
               value={[size]}
               onValueChange={(value) => setSize(value[0])}
@@ -97,33 +104,13 @@ export default function QRCodeGenerator() {
             />
           </div>
 
-          <div>
-            <Label htmlFor='errorCorrection'>Error Correction Level</Label>
-            <Select
-              value={errorCorrection}
-              onValueChange={(value) =>
-                setErrorCorrection(value as ErrorCorrectionLevel)
-              }
-            >
-              <SelectTrigger id='errorCorrection'>
-                <SelectValue placeholder='Select error correction level' />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value='L'>Low (7%)</SelectItem>
-                <SelectItem value='M'>Medium (15%)</SelectItem>
-                <SelectItem value='Q'>Quartile (25%)</SelectItem>
-                <SelectItem value='H'>High (30%)</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-
           <Button type='submit' className='w-full'>
-            Generate QR Code
+            Generate Your QR
           </Button>
         </form>
-      </CardContent>
+      </div>
 
-      <CardFooter className='flex justify-center'>
+      <div className='flex items-center justify-center px-0 sm:px-2'>
         {qrCode && (
           <div className='mt-4'>
             <QRCodeSVG
@@ -132,12 +119,11 @@ export default function QRCodeGenerator() {
               fgColor={color}
               bgColor={backgroundColor}
               level={errorCorrection}
-              // if your version doesn't support marginSize, you can remove this
-              // marginSize={0}
+              marginSize={0}
             />
           </div>
         )}
-      </CardFooter>
-    </Card>
+      </div>
+    </div>
   );
 }

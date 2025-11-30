@@ -14,20 +14,20 @@ export function CanvasPalette({
   onColorSelect,
 }: ColorPaletteProps) {
   return (
-    <div className='flex border-t border-gray-400 bg-gray-300 p-1'>
-      <div className='flex flex-wrap gap-1'>
+    <div className='flex border-t border-border bg-card p-1'>
+      <section className='flex flex-wrap gap-1'>
         {colors.map((c) => (
           <Button
             key={c}
             variant='ghost'
-            className={`size-6 min-w-0 cursor-pointer p-0 ${
-              selectedColor === c ? "ring-1 ring-gray-600" : ""
+            className={`size-5.5 min-w-0 cursor-pointer p-0 sm:size-4.5 md:size-5.5 ${
+              selectedColor === c ? "ring-1 ring-blue-600" : ""
             }`}
             style={{ backgroundColor: c }}
             onClick={() => onColorSelect(c)}
           />
         ))}
-      </div>
+      </section>
     </div>
   );
 }

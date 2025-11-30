@@ -2,10 +2,10 @@ import QRCodeGenerator from "@/components/tools/qr/qr-generator";
 
 export default function QRGeneratorPage() {
   return (
-    <>
-      <section className='grid min-h-screen place-items-center px-4'>
+    <section className='grid min-h-screen place-items-center'>
+      <div className='px-4'>
         <QRCodeGenerator />
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
