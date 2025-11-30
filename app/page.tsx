@@ -16,6 +16,7 @@ export default function HomePage() {
           <Link href='/tools/paint-canvas'>Paint Canvas</Link>
           <Link href='/tools/palette-generator'>Palette Generator</Link>
           <Link href='/tools/pomodoro-timer'>Pomodoro Timer</Link>
+          <Link href='/tools/qr-generator'>QR Generator</Link>
           <Link href='/tools/synth-player'>Synth Player</Link>
           <Link href='/tools/transcribe-live'>Transcribe Live</Link>
           <Link href='/tools/typing-test'>Typing Test</Link>
