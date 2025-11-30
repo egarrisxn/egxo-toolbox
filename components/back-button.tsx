@@ -1,8 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { motion, type Variants, type SVGMotionProps } from "motion/react";
 import Link from "next/link";
+import { motion, type Variants, type SVGMotionProps } from "motion/react";
 
 const hoverVariants: Variants = {
   initial: {
