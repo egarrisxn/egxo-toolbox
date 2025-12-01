@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 
 interface ClearLeaderboardButtonProps {
   onClear: () => void;
@@ -91,11 +90,11 @@ export function Leaderboard({
           )}
           {!submitted ? (
             <div className='w-full max-w-72 space-y-2'>
-              <Input
+              <input
                 placeholder='Enter your name'
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className='text-center'
+                className='h-9 w-full min-w-0 rounded-md border border-input bg-transparent px-3 py-1 text-center text-base shadow-xs transition-[color,box-shadow] outline-none selection:bg-primary selection:text-primary-foreground file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm dark:bg-input/30'
               />
               <Button
                 onClick={handleSubmit}

@@ -1,4 +1,3 @@
-// import { motion } from "motion/react";
 import { Slider } from "@/components/ui/slider";
 
 interface HueSliderProps {
@@ -8,22 +7,10 @@ interface HueSliderProps {
 
 export function HueSlider({ hueShift, setHueShift }: HueSliderProps) {
   return (
-    <div
-      className='space-y-2'
-      // whileHover={{ scale: 1.01 }}
-      // transition={{ type: "spring", stiffness: 400, damping: 25 }}
-    >
+    <div className='space-y-2'>
       <div className='flex justify-between'>
         <label className='text-sm font-medium'>Hue Shift</label>
-        <span
-          className='text-sm text-gray-500'
-          // animate={{
-          //   x: hueShift === 0 ? [0, 5, -5, 5, -5, 0] : 0,
-          //   transition: { duration: hueShift === 0 ? 0.5 : 0 },
-          // }}
-        >
-          {hueShift}°
-        </span>
+        <span className='text-sm text-gray-500'>{hueShift}°</span>
       </div>
       <Slider
         value={[hueShift]}
@@ -44,22 +31,10 @@ interface VibrancySliderProps {
 
 export function VibrancySlider({ vibrancy, setVibrancy }: VibrancySliderProps) {
   return (
-    <div
-      className='space-y-2'
-      // whileHover={{ scale: 1.01 }}
-      // transition={{ type: "spring", stiffness: 400, damping: 25 }}
-    >
+    <div className='space-y-2'>
       <div className='flex justify-between'>
         <label className='text-sm font-medium'>Vibrancy</label>
-        <span
-          className='text-sm text-gray-500'
-          // animate={{
-          //   x: vibrancy === 50 ? [0, 5, -5, 5, -5, 0] : 0,
-          //   transition: { duration: vibrancy === 50 ? 0.5 : 0 },
-          // }}
-        >
-          {vibrancy}%
-        </span>
+        <span className='text-sm text-gray-500'>{vibrancy}%</span>
       </div>
       <Slider
         value={[vibrancy]}

@@ -3,9 +3,7 @@
 import { useState, useEffect } from "react";
 import { Plus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface Task {
   id: string;
@@ -66,18 +64,18 @@ export default function TaskList() {
   };
 
   return (
-    <Card className='h-fit w-full max-w-96 min-w-80 sm:max-w-96 sm:min-w-96 xl:min-w-[26em]'>
-      <CardHeader className='xl:hidden'>
-        <CardTitle className='mx-auto text-lg font-bold'>Task List</CardTitle>
-      </CardHeader>
-      <CardContent>
+    <div className='flex h-fit w-full max-w-96 min-w-80 flex-col gap-6 text-card-foreground sm:max-w-96 sm:min-w-96 sm:rounded-xl sm:border sm:border-border sm:bg-card sm:py-6 sm:shadow-lg xl:min-w-[26em]'>
+      <div className='rid-rows-[auto_auto] grid auto-rows-min items-start gap-2 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] xl:hidden'>
+        <div className='mx-auto text-lg leading-none font-bold'>Task List</div>
+      </div>
+      <div className='px-6'>
         <div className='flex space-x-2'>
-          <Input
+          <input
             value={newTaskText}
             onChange={(e) => setNewTaskText(e.target.value)}
             onKeyUp={handleKeyUp}
             placeholder='Add task...'
-            className='grow'
+            className='h-9 w-full min-w-0 grow rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none selection:bg-primary selection:text-primary-foreground file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 md:text-sm dark:bg-input/30 dark:aria-invalid:ring-destructive/40'
           />
           <Button onClick={addTask} size='icon'>
             <Plus />
@@ -115,7 +113,7 @@ export default function TaskList() {
             ))
           )}
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 }

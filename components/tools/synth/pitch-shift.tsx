@@ -1,6 +1,5 @@
 "use client";
 
-import { Card } from "@/components/ui/card";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 interface PitchShiftProps {
@@ -52,7 +51,7 @@ export const PitchShift: React.FC<PitchShiftProps> = ({ onChange }) => {
   }, [isDragging, handlePitchChange, handleMouseUp]);
 
   return (
-    <Card className='relative mb-10 h-20 w-full rounded-sm py-0.5'>
+    <div className='relative mb-10 flex h-20 w-full flex-col gap-6 rounded-sm border bg-card py-0.5 text-card-foreground shadow-sm'>
       <div
         ref={pitchShiftRef}
         className={`relative size-full ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
@@ -77,6 +76,6 @@ export const PitchShift: React.FC<PitchShiftProps> = ({ onChange }) => {
           Pitch Shift
         </span>
       </div>
-    </Card>
+    </div>
   );
 };

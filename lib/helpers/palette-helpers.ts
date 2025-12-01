@@ -161,9 +161,7 @@ export function generateColorShades(
   });
 }
 
-// Calculate luminance (already in your helpers.ts)
 export function getLuminance(hex: string): number {
-  // Your existing getLuminance implementation
   const rgb = parseInt(hex.replace("#", ""), 16);
   const r = (rgb >> 16) & 0xff;
   const g = (rgb >> 8) & 0xff;

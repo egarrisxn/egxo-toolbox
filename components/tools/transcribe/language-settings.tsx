@@ -1,6 +1,5 @@
 "use client";
 
-import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 interface IconProps {
@@ -76,9 +75,9 @@ export default function LanguageSettings({
 
           <div className='grid grid-cols-1 gap-2'>
             {AVAILABLE_LANGUAGES.map((lang) => (
-              <Card
+              <div
                 key={lang.code}
-                className={`cursor-pointer p-3 transition-all ${
+                className={`flex cursor-pointer flex-col rounded-xl p-3 text-card-foreground shadow-sm transition-all ${
                   selectedLanguages.includes(lang.code)
                     ? "border-accent bg-accent/10"
                     : "bg-card hover:bg-muted/50"
@@ -98,7 +97,7 @@ export default function LanguageSettings({
                     </span>
                   )}
                 </div>
-              </Card>
+              </div>
             ))}
           </div>
 

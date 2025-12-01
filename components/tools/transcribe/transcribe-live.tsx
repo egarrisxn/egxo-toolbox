@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import LanguageSettings from "./language-settings";
 
 interface IconProps {
@@ -249,7 +248,7 @@ export default function TranscribeLive() {
   };
 
   return (
-    <div className='flex h-screen flex-col items-center justify-center px-4'>
+    <div className='flex h-dvh flex-col items-center justify-center'>
       {/* Header */}
       <header>
         <div className='container mx-auto flex items-center justify-end p-4'>
@@ -296,19 +295,22 @@ export default function TranscribeLive() {
           )}
 
           {transcripts.map((transcript) => (
-            <Card key={transcript.id} className='border-border bg-card p-4'>
+            <div
+              key={transcript.id}
+              className='flex flex-col gap-6 rounded-xl border border-border bg-card p-4 text-card-foreground shadow-sm'
+            >
               <p className='text-lg leading-relaxed text-balance text-card-foreground'>
                 {transcript.text}
               </p>
-            </Card>
+            </div>
           ))}
 
           {currentTranscript && (
-            <Card className='border-2 border-accent/30 bg-muted/50 p-4'>
+            <div className='flex flex-col gap-6 rounded-xl border-2 border-accent/30 bg-muted/50 p-4 text-card-foreground shadow-sm'>
               <p className='text-lg leading-relaxed text-balance text-muted-foreground'>
                 {currentTranscript}
               </p>
-            </Card>
+            </div>
           )}
 
           {isListening && !currentTranscript && transcripts.length === 0 && (

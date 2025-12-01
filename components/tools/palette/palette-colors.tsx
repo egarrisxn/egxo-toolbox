@@ -23,8 +23,6 @@ export function ColorDetails({
           <div
             className='h-full bg-black dark:bg-primary'
             style={{ width: `${(hue / 360) * 100}%` }}
-            // animate={{ width: `${(hue / 360) * 100}%` }}
-            // transition={{ duration: 0.3 }}
           />
         </div>
       </div>
@@ -36,8 +34,6 @@ export function ColorDetails({
           <div
             className='h-full bg-black dark:bg-primary'
             style={{ width: `${saturation}%` }}
-            // animate={{ width: `${saturation}%` }}
-            // transition={{ duration: 0.3 }}
           />
         </div>
       </div>
@@ -49,8 +45,6 @@ export function ColorDetails({
           <div
             className='h-full bg-black dark:bg-primary'
             style={{ width: `${lightness}%` }}
-            // animate={{ width: `${lightness}%` }}
-            // transition={{ duration: 0.3 }}
           />
         </div>
       </div>
@@ -114,8 +108,6 @@ export function ColorSquare({ className, baseColor, hue }: ColorSquareProps) {
     <div
       className={`${className} size-8 rounded`}
       style={{ backgroundColor: baseColor || hue }}
-      // animate={{ backgroundColor: baseColor || hue }}
-      // transition={{ duration: 0.3 }}
     />
   );
 }
@@ -131,18 +123,10 @@ export function CopyColor({ copyToClipboard, hex, copiedHex }: CopyColorProps) {
     <div
       className='flex cursor-pointer items-center gap-0.5 font-mono text-xs tracking-tight lg:gap-1.5 lg:text-base lg:tracking-normal'
       onClick={() => copyToClipboard(hex)}
-      // whileHover={{ scale: 1.05 }}
-      // whileTap={{ scale: 0.95 }}
     >
       {hex}
       {copiedHex === hex ? (
-        <div
-          // initial={{ scale: 0 }}
-          // animate={{ scale: 1 }}
-          // transition={{ type: "spring", stiffness: 500, damping: 15 }}
-        >
-          <Check className='size-3 text-green-500 lg:size-4' />
-        </div>
+        <Check className='size-3 text-green-500 lg:size-4' />
       ) : (
         <Copy className='size-3 opacity-50 lg:size-4' />
       )}
@@ -161,23 +145,18 @@ export function RandomizeColor({
 }: RandomizeColorProps) {
   return (
     <div className='flex items-center gap-2'>
-      <div
-        // whileHover={{ scale: 1.05 }}
-        // whileTap={{ scale: 0.95 }}
+      <Button
+        variant='outline'
+        size='sm'
+        onClick={randomizeColor}
+        className='text-xs'
+        disabled={isRandomizing}
       >
-        <Button
-          variant='outline'
-          size='sm'
-          onClick={randomizeColor}
-          className='text-xs'
-          disabled={isRandomizing}
-        >
-          <RefreshCw
-            className={`mr-1 size-3 ${isRandomizing ? "animate-spin" : ""}`}
-          />
-          Randomize
-        </Button>
-      </div>
+        <RefreshCw
+          className={`mr-1 size-3 ${isRandomizing ? "animate-spin" : ""}`}
+        />
+        Randomize
+      </Button>
     </div>
   );
 }

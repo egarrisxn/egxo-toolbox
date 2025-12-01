@@ -8,13 +8,13 @@ export default function PagesLayout({
 }) {
   return (
     <>
-      <div className='absolute top-4 left-4 z-10'>
+      <div className='absolute top-4 left-4 z-50'>
         <BackButton />
       </div>
-      <div className='absolute top-4 right-4 z-10'>
+      <div className='absolute top-4 right-4 z-50'>
         <ThemeToggle />
       </div>
-      <main className='min-h-screen'>{children}</main>
+      <main className='min-h-dvh'>{children}</main>
     </>
   );
 }

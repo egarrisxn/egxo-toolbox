@@ -235,7 +235,7 @@ export default function ButtonCopy() {
   };
 
   return (
-    <section className='grid grid-cols-1 gap-8 px-4 py-16 sm:grid-cols-2 lg:grid-cols-3'>
+    <section className='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3'>
       {buttonGroups.map((group, index) => (
         <ButtonGroup
           key={group.name || index}

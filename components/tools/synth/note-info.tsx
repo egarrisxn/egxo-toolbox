@@ -1,4 +1,3 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 function getNoteFrequency(note: string): string {
@@ -32,11 +31,11 @@ export function NoteInfo({ activeNotes }: NoteInfoProps) {
   const notes = Array.isArray(activeNotes) ? activeNotes : [];
 
   return (
-    <Card className='h-full rounded-sm'>
-      <CardHeader>
-        <CardTitle className='text-sm font-semibold'>Active Notes</CardTitle>
-      </CardHeader>
-      <CardContent>
+    <div className='flex h-full flex-col gap-6 rounded-sm border bg-card py-6 text-card-foreground shadow-sm'>
+      <div className='grid auto-rows-min grid-rows-[auto_auto] items-start gap-2 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto]'>
+        <div className='text-sm leading-none font-semibold'>Active Notes</div>
+      </div>
+      <div className='px-6'>
         <ScrollArea className='h-20 w-full'>
           <div className='flex flex-wrap gap-1'>
             {notes.length === 0 ? (
@@ -58,7 +57,7 @@ export function NoteInfo({ activeNotes }: NoteInfoProps) {
             )}
           </div>
         </ScrollArea>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 }

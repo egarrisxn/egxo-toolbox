@@ -5,7 +5,6 @@ import { Play, Pause, RotateCcw, Settings } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
-import { Label } from "@/components/ui/label";
 import {
   Dialog,
   DialogContent,
@@ -20,13 +19,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-} from "@/components/ui/card";
 
 type TimerMode = "work" | "break";
 type TimerPreset = "25/5" | "50/10" | "90/20" | "custom";
@@ -173,19 +165,19 @@ export default function PomodoroTimer() {
   };
 
   return (
-    <Card className='h-fit w-full max-w-96 min-w-80 sm:max-w-96 sm:min-w-96 xl:min-w-[26em]'>
+    <div className='flex h-fit w-full max-w-96 min-w-80 flex-col gap-6 text-card-foreground sm:max-w-96 sm:min-w-96 sm:rounded-xl sm:border sm:border-border sm:bg-card sm:py-6 sm:shadow-lg xl:min-w-[26em]'>
       <Progress value={calculateProgress()} />
-      <CardHeader>
-        <CardTitle className='mx-auto text-3xl font-bold'>
+      <div className='rid-rows-[auto_auto] grid auto-rows-min items-start gap-2 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto]'>
+        <div className='mx-auto text-3xl leading-none font-bold'>
           {mode === "work" ? "Focus Timer" : "Break Time"}
-        </CardTitle>
-        <CardDescription
-          className='mx-auto text-7xl'
+        </div>
+        <div
+          className='mx-auto text-7xl text-muted-foreground'
           dangerouslySetInnerHTML={{ __html: formatTime(timeLeft) }}
         />
-      </CardHeader>
+      </div>
 
-      <CardContent className='mx-auto space-x-3'>
+      <div className='mx-auto space-x-3 px-6'>
         <Button onClick={toggleTimer} size='icon'>
           {isActive ? <Pause /> : <Play />}
         </Button>
@@ -207,7 +199,9 @@ export default function PomodoroTimer() {
             </DialogHeader>
             <div className='space-y-4 py-2'>
               <div className='space-y-2'>
-                <Label>Preset Timers</Label>
+                <div className='flex items-center gap-2 text-sm leading-none font-medium select-none'>
+                  Preset Timers
+                </div>
                 <Select
                   value={settings.preset}
                   onValueChange={handlePresetChange}
@@ -228,7 +222,9 @@ export default function PomodoroTimer() {
                 <>
                   <div className='space-y-2'>
                     <div className='flex justify-between'>
-                      <Label>Work Time: {customWorkTime} minutes</Label>
+                      <div className='flex items-center gap-2 text-sm leading-none font-medium select-none'>
+                        Work Time: {customWorkTime} minutes
+                      </div>
                     </div>
                     <Slider
                       value={[customWorkTime]}
@@ -240,7 +236,9 @@ export default function PomodoroTimer() {
                   </div>
                   <div className='space-y-2'>
                     <div className='flex justify-between'>
-                      <Label>Break Time: {customBreakTime} minutes</Label>
+                      <div className='flex items-center gap-2 text-sm leading-none font-medium select-none'>
+                        Break Time: {customBreakTime} minutes
+                      </div>
                     </div>
                     <Slider
                       value={[customBreakTime]}
@@ -261,7 +259,7 @@ export default function PomodoroTimer() {
             </div>
           </DialogContent>
         </Dialog>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 }
